@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int is_fizz(long number)
+{
+    return number % 3 == 0;
+}
+
 void usage(const char * progname)
 {
     printf("Usage: %s <number>\n", progname);
@@ -15,7 +20,13 @@ int main(int argc, char ** argv)
     long number = atoi(argv[1]);
 
     for (long i = 1; i <= number; i++) {
-        printf("%ld\n", i);
+        if (is_fizz(i)) {
+            printf("fizz");
+        } else {
+            printf("%ld", i);
+        }
+
+        putchar('\n');
     }
 
     return 0;
