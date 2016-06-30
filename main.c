@@ -6,6 +6,11 @@ int is_buzz(long number)
     return number % 5 == 0;
 }
 
+int is_fizz(long number)
+{
+    return number % 3 == 0;
+}
+
 void usage(const char * progname)
 {
     printf("Usage: %s <number>\n", progname);
@@ -20,9 +25,13 @@ int main(int argc, char ** argv)
     long number = atoi(argv[1]);
 
     for (long i = 1; i <= number; i++) {
-        if (is_buzz(i)) {
-            printf("buzz");
-        } else {
+        if (is_fizz(i) || is_buzz(i)) {
+            if(is_fizz(i))
+			  printf("fizz ");
+			if(is_buzz(i))
+			  printf("buzz");
+
+		} else {
             printf("%ld", i);
         }
 
